@@ -16,11 +16,11 @@ public class Postfix
     int result;
     
     // input file
-    String path = "/home.... les/postfixexpressions.txt";
+    String path = "Expressions/postfixexpressions.txt";
 	File fname = new File( path );
 	
 	//output file
-	String write2file = "/hom....afiles/postfixResults.txt";
+	String write2file = "Expressions/postfixResult.txt";
 	File wrname = new File (write2file);
 	
 	try{

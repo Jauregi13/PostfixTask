@@ -18,7 +18,7 @@ public class PostfixEvaluator
    */
   public PostfixEvaluator()
   {
-    stack = //here create the object with new
+    stack = new GenericArrayStack();
   }
 
   /**
@@ -35,6 +35,27 @@ public class PostfixEvaluator
     String[] tokens;
     tokens = expr.split("\\s");
     String token;
+    
+    for (int i = 0; i < tokens.length; i++) {
+    	
+    	if(!isOperator(tokens[i])) {
+    		
+    		
+    		stack.push(Integer.parseInt(tokens[i]));
+    	}
+    	else {
+    		token = tokens[i];
+    		op1 = stack.pop();
+    		op2 = stack.pop();
+    		
+    		result = evalSingleOp(token.charAt(0),op1,op2);
+    		
+    		stack.push(result);
+    		
+    	}
+	}
+    
+    return result;
    /* use token.charAt(0) if you need to access the first char
 .	.........
   Clues. 1: Iterate over all tokens
